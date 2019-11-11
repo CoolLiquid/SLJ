@@ -19,59 +19,59 @@ public class AppLaunchMain {
 
         String configrationFilPath = "./src/resources/configration.xml";
         IGetConfigration iGetConfigration = getConfigration(configrationFilPath);
-//        if (iGetConfigration != null) {
-//            File file = new File(iGetConfigration.getObjectFilePath(), iGetConfigration.getObjectFileName() + ".txt");
-//            try {
-//                if (!file.exists()) {
-//                    file.createNewFile();
-//                }
-//                //从Manifest文件中获取相关信息并处理manifest文件
-//                AndroidManifestHandle androidManifestHandle = new AndroidManifestHandle(iGetConfigration.getManifestFilePath()
-//                        , iGetConfigration.getMainActivity(), iGetConfigration.getForbidActivities());
-//                ManifestDataBean manifestDataBean = androidManifestHandle.analysisManifestFile();
-//                androidManifestHandle.addExportSAttrInFile();
-//
-//               /* startLogcatMonitor(
-//                        file.getAbsolutePath()
-//                        , manifestDataBean.packageName);
-//                startLaunchEngineMonitor(manifestDataBean);*/
-//
-//                //为工程项目打包
-//                LogcatMonitoring logcatMonitoring = new PackApkMonitoring(iGetConfigration.getProjectPath());
-//                logcatMonitoring.monitor(new LogcatMonitoring.Result() {
-//                    @Override
-//                    public void result(boolean sucess) {
-//                        if (sucess) {
-//                            //去除manifest中的额外添加的属性
-//                            androidManifestHandle.removeExportAttrInFile();
-//                            //安装apk到手机上
-//                            String apkPath = FileHelper.searchFile(iGetConfigration.getProjectPath(), "app-debug.apk");
-//                            if (apkPath == null) {
-//                                throw new RuntimeException("未找到刚刚打出来的apk包");
-//                            }
-//
-//                            ApkInstallMonitor apkInstallMonitor = new ApkInstallMonitor(apkPath);
-//                            apkInstallMonitor.monitor(new LogcatMonitoring.Result() {
-//                                @Override
-//                                public void result(boolean sucess) {
-//                                    if (sucess) {
-//                                        startLogcatMonitor(
-//                                                file.getAbsolutePath()
-//                                                , manifestDataBean.packageName);
-//                                        startLaunchEngineMonitor(manifestDataBean);
-//
-//                                    } else {
-//                                        System.out.println("应用安装失败，请确保AS和手机是连上的同时要安装的应用需要先卸载掉");
-//                                    }
-//                                }
-//                            });
-//                        }
-//                    }
-//                });
-//            } catch (IOException | ParserConfigurationException | SAXException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        if (iGetConfigration != null) {
+            File file = new File(iGetConfigration.getObjectFilePath(), iGetConfigration.getObjectFileName() + ".txt");
+            try {
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+                //从Manifest文件中获取相关信息并处理manifest文件
+                AndroidManifestHandle androidManifestHandle = new AndroidManifestHandle(iGetConfigration.getManifestFilePath()
+                        , iGetConfigration.getMainActivity(), iGetConfigration.getForbidActivities());
+                ManifestDataBean manifestDataBean = androidManifestHandle.analysisManifestFile();
+                androidManifestHandle.addExportSAttrInFile();
+
+               /* startLogcatMonitor(
+                        file.getAbsolutePath()
+                        , manifestDataBean.packageName);
+                startLaunchEngineMonitor(manifestDataBean);*/
+
+                //为工程项目打包
+                LogcatMonitoring logcatMonitoring = new PackApkMonitoring(iGetConfigration.getProjectPath());
+                logcatMonitoring.monitor(new LogcatMonitoring.Result() {
+                    @Override
+                    public void result(boolean sucess) {
+                        if (sucess) {
+                            //去除manifest中的额外添加的属性
+                            androidManifestHandle.removeExportAttrInFile();
+                            //安装apk到手机上
+                            String apkPath = FileHelper.searchFile(iGetConfigration.getProjectPath(), "app-debug.apk");
+                            if (apkPath == null) {
+                                throw new RuntimeException("未找到刚刚打出来的apk包");
+                            }
+
+                            ApkInstallMonitor apkInstallMonitor = new ApkInstallMonitor(apkPath);
+                            apkInstallMonitor.monitor(new LogcatMonitoring.Result() {
+                                @Override
+                                public void result(boolean sucess) {
+                                    if (sucess) {
+                                        startLogcatMonitor(
+                                                file.getAbsolutePath()
+                                                , manifestDataBean.packageName);
+                                        startLaunchEngineMonitor(manifestDataBean);
+
+                                    } else {
+                                        System.out.println("应用安装失败，请确保AS和手机是连上的同时要安装的应用需要先卸载掉");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            } catch (IOException | ParserConfigurationException | SAXException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 
