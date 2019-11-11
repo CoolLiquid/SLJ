@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<app>
+    <result>
+        <path>C:/Users/wnp/Desktop</path>//分析结果输出路径
+        <fileName>appLaunch</fileName>
+    </result>
+
+    <project>
+        <path>C:\Users\wnp\TgnetInformation</path>//项目路径地址
+        <manifest>C:\Users\wnp\TgnetInformation\app\src\main\AndroidManifest.xml</manifest>//项目AndroidManifest文件路径
+        <main-activity>MainActivity</main-activity>//应用入口Activity
+        //过滤掉不启动的Activity
+        <filter-activity>ApplyForAdvanceMemberTrialActivity</filter-activity>
+        <filter-activity>CustomBusinessOpportunityActivity</filter-activity>
+        <filter-activity>CollectionGroupActivity</filter-activity>
+        <filter-activity>ChooseWrongContactActivity</filter-activity>
+        <filter-activity>ApplyForSeniorMemberSuccessActivity</filter-activity>
+        <filter-activity>AuthActivity</filter-activity>
+        <filter-activity>H5PayActivity</filter-activity>
+        <filter-activity>BetaActivity</filter-activity>
+        <filter-activity>VideoActivity</filter-activity>
+        <filter-activity>AssistActivity</filter-activity>
+        <filter-activity>WXEntryActivity</filter-activity>
+        <filter-activity>WXPayEntryActivity</filter-activity>
+        <filter-activity>EditBusinessOpportunityKeyWordActivity</filter-activity>
+        <filter-activity>AdvanceSearchSettingActivity</filter-activity>
+        <filter-activity>AllBidPurchaseListActivity</filter-activity>
+        <filter-activity>FirstLaunchActivity</filter-activity>
+        <filter-activity>ImportCustomerActivity</filter-activity>
+        <filter-activity>ImageBrowserActivity</filter-activity>
+    </project>
+</app>
+        <!--
+                1.分析结果输出路径
+                2.android项目的地址
+        -->
+        <!--
+                脚本处理流程：
+                1.生成结果分析路径文件
+                2.分析项目AndroidManifest.xml，得到需要测试的Activity列表
+                3.对AndroidManifest.xml文件进行处理
+                4.编译项目并运行
+                5.启动adb-logcat命令
+                6.启动对应的Activity，获取结果并输出到结果文件中
+                7.关闭adb-logcat程序
+                8.并恢复AndroidManifest.xml
+        -->
+
