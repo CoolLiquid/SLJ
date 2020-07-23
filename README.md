@@ -1,46 +1,15 @@
-# SLJ
-稍后会更新使用说明和说明实现原理
-
-**这是加粗的文字**
-
-*这是倾斜的文字*
-
-***这是斜体加粗的文字***
-
-~~这是加删除线的文字~~
-
->这是引用的内容
->>这是引用的内容
->>>这是引用的内容
->>>>>>>>>>这是引用的内容
-
----
-----
-***
-*****
-
-![blockchain](https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=702257389,1274025419&fm=27&gp=0.jpg "区块链")
-
-[简书](http://jianshu.com)
-[百度](http://baidu.com)
-
-```
-private static void searchManifestFile(File direct, String objectFileName, List<String> paths) {
-        File[] rootFiles = direct.listFiles();
-        for (int i = 0; i < rootFiles.length; i++) {
-            File file = rootFiles[i];
-            if (file.isFile() && file.getName().equals(objectFileName)) {
-                paths.add(file.getAbsolutePath());
-            }
-            if (file.isDirectory()) {
-                searchManifestFile(file, objectFileName, paths);
-            }
-        }
-    }
-```
-
-- 列表内容
-    + 列表内容
-        * 列表内容
-
-
+<!--
+                1.分析结果输出路径
+                2.android项目的地址
+-->
+<!--
+                脚本处理流程：
+                1.生成结果分析路径文件
+                2.分析项目AndroidManifest.xml，得到需要测试的Activity列表
+                3.对AndroidManifest.xml文件进行处理
+                4.编译项目并运行
+                5.启动adb-logcat命令
+                6.启动对应的Activity，获取结果并输出到结果文件中
+                7.关闭adb-logcat程序
+                8.并恢复AndroidManifest.xml
+-->
